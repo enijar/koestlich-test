@@ -6,7 +6,6 @@ import * as CopyPlugin from "copy-webpack-plugin";
 import * as MiniCssExtractPlugin from "mini-css-extract-plugin";
 import * as ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 
-const WatchExternalFilesPlugin = require("webpack-watch-files-plugin").default;
 const HtmlInlineScriptPlugin = require("html-inline-script-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
@@ -47,16 +46,6 @@ const config = {
               plugins: [
                 "@babel/plugin-transform-runtime",
                 "babel-plugin-macros",
-                [
-                  "babel-plugin-styled-components",
-                  {
-                    ssr: !DEV_MODE,
-                    fileName: false,
-                    displayName: DEV_MODE,
-                    minify: !DEV_MODE,
-                    pure: !DEV_MODE,
-                  },
-                ],
                 ...(DEV_MODE ? ["react-refresh/babel"] : []),
               ],
             },
@@ -81,9 +70,6 @@ const config = {
     ],
   },
   plugins: [
-    new WatchExternalFilesPlugin({
-      files: [path.resolve(__dirname, "..", "server", "src", "**", "*")],
-    }),
     // Add ENV_VARS here to make them available inside the app
     new webpack.DefinePlugin({
       "process.env": JSON.stringify(dotenv.config().parsed),
