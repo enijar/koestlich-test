@@ -1,0 +1,59 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "NODE_ENV=development webpack serve --mode development",
+    "start-https": "HTTPS=true NODE_ENV=development webpack serve --mode development",
+    "build": "NODE_ENV=production webpack --mode production"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/plugin-transform-runtime": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.26",
+    "@types/three": "^0.156.0",
+    "babel-loader": "^9.1.3",
+    "babel-plugin-macros": "^3.1.0",
+    "babel-plugin-styled-components": "^2.1.4",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "dotenv": "^16.3.1",
+    "fork-ts-checker-webpack-plugin": "^8.0.0",
+    "html-inline-script-webpack-plugin": "^3.2.1",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "prettier": "^3.0.2",
+    "react-refresh": "^0.14.0",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-watch-files-plugin": "^1.2.1"
+  },
+  "dependencies": {
+    "@coconut-xr/koestlich": "^0.3.11",
+    "@react-three/drei": "^9.86.3",
+    "@react-three/fiber": "^8.14.5",
+    "@react-three/xr": "^5.7.1",
+    "@tanstack/react-query": "^4.33.0",
+    "@trpc/client": "^10.37.1",
+    "@trpc/react-query": "^10.37.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0",
+    "styled-components": "^6.0.7",
+    "three": "^0.157.0",
+    "zustand": "^4.4.1"
+  }
+}
