@@ -1,8 +1,12 @@
 import React from "react";
 import { Container, Image, noAnimation, Text } from "@coconut-xr/koestlich";
 import { assets } from "@/config/assets";
+import { content } from "@/config/content";
+import { appState } from "@/state/app-state";
 
 export default function Home() {
+  const language = appState((state) => state.language);
+
   const [clicked, setClicked] = React.useState(false);
 
   return (
@@ -26,7 +30,7 @@ export default function Home() {
         fontFamily="OptimisticDisplayBold"
         lineHeightMultiplier={1}
       >
-        Building trust with a new advertiser
+        {content[language].homeTitle}
       </Text>
       <Container width="100%" flexDirection="row" gapColumn={40} animation={noAnimation}>
         <Container flexGrow={1} maxWidth={484} animation={noAnimation}>
@@ -34,10 +38,7 @@ export default function Home() {
         </Container>
         <Container flexShrink={1} animation={noAnimation}>
           <Text color="#000000" fontSize={20} animation={noAnimation} wrapper="breakword" lineHeightMultiplier={1.4}>
-            This is the first call with Imani, owner of retail “Lucky Shrub.” Imani scheduled a meeting with a Marketing
-            Pro after a cold outreach email. Here, the Marketing Pro will demonstrate selling the value of working with
-            a Marketing Pro, discover important business information and goals, and help the advertiser set up the
-            pitched solution.
+            {content[language].homeDescription}
           </Text>
         </Container>
       </Container>
