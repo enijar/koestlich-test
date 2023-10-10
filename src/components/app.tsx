@@ -1,7 +1,7 @@
 import React from "react";
 import { useThree } from "@react-three/fiber";
 import { CameraControls, PerspectiveCamera } from "@react-three/drei";
-import { FontFamilyProvider, noAnimation, RootContainer, Text } from "@coconut-xr/koestlich";
+import { DefaultStyleProvider, FontFamilyProvider, noAnimation, RootContainer, Text } from "@coconut-xr/koestlich";
 import { loadYoga } from "@coconut-xr/flex";
 import { Controllers } from "@react-three/xr";
 import Home from "@/pages/home";
@@ -22,19 +22,20 @@ export default function App() {
         }}
         defaultFontFamily="OptimisticDisplayMedium"
       >
-        <RootContainer
-          sizeX={viewport.width}
-          sizeY={viewport.height}
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-          animation={noAnimation}
-          loadYoga={loadYoga}
-        >
-          <React.Suspense>
-            <Home />
-          </React.Suspense>
-        </RootContainer>
+        <DefaultStyleProvider animation={noAnimation}>
+          <RootContainer
+            sizeX={viewport.width}
+            sizeY={viewport.height}
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            loadYoga={loadYoga}
+          >
+            <React.Suspense>
+              <Home />
+            </React.Suspense>
+          </RootContainer>
+        </DefaultStyleProvider>
       </FontFamilyProvider>
     </>
   );

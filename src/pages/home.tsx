@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Image, noAnimation, Text } from "@coconut-xr/koestlich";
+import { Container, Image, Text } from "@coconut-xr/koestlich";
 import { assets } from "@/config/assets";
 import { content } from "@/config/content";
 import { appState } from "@/state/app-state";
@@ -14,7 +14,6 @@ export default function Home() {
       width={1200}
       height={584}
       backgroundColor="#ffffff"
-      animation={noAnimation}
       backgroundOpacity={0.95}
       paddingX={70}
       paddingY={64}
@@ -25,19 +24,18 @@ export default function Home() {
         color="#000000"
         maxWidth={976}
         fontSize={60}
-        animation={noAnimation}
         wrapper="breakword"
         fontFamily="OptimisticDisplayBold"
         lineHeightMultiplier={1}
       >
         {content[language].homeTitle}
       </Text>
-      <Container width="100%" flexDirection="row" gapColumn={40} animation={noAnimation}>
-        <Container flexGrow={1} maxWidth={484} animation={noAnimation}>
-          <Image url={assets.hero} width="100%" animation={noAnimation} />
+      <Container width="100%" flexDirection="row" gapColumn={40}>
+        <Container flexGrow={1} maxWidth={484}>
+          <Image url={assets.hero} width="100%" />
         </Container>
-        <Container flexShrink={1} animation={noAnimation}>
-          <Text color="#000000" fontSize={20} animation={noAnimation} wrapper="breakword" lineHeightMultiplier={1.4}>
+        <Container flexShrink={1}>
+          <Text color="#000000" fontSize={20} wrapper="breakword" lineHeightMultiplier={1.4}>
             {content[language].homeDescription}
           </Text>
         </Container>
@@ -48,14 +46,13 @@ export default function Home() {
         onClick={() => setClicked((clicked) => !clicked)}
         positionBottom={0}
         positionRight={0}
-        animation={noAnimation}
         padding={18}
         minWidth={202}
         flexDirection="row"
         alignItems="center"
         justifyContent="center"
       >
-        <Text color="#ffffff" fontFamily="OptimisticDisplayBold" fontSize={18} animation={noAnimation}>
+        <Text color="#ffffff" fontFamily="OptimisticDisplayBold" fontSize={18}>
           BEGIN{clicked ? " (clicked)" : ""}
         </Text>
       </Container>
